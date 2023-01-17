@@ -1,6 +1,6 @@
 [submodule "kobuki"]
 	path = kobuki
-	url = git@github.com:KTH-CAS-UAV/kobuki.git
+	url = https://github.com/KTH-CAS-UAV/kobuki.git
 [submodule "kobuki_soft"]
 	path = kobuki_soft
-	url = git@github.com:KTH-CAS-UAV/kobuki_soft.git
+	url = https://github.com/KTH-CAS-UAV/kobuki_soft.git
