@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+	<param name="/use_sim_time" value="true" />
+
+	<!-- run rviz -->
+	<node pkg="rviz" type="rviz" name="rviz" args="-d $(find robp_boot_camp_launch)/config/boot_camp_part3.rviz" />
+
+	<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find realsense2_description)/urdf/test_d435_camera.urdf.xacro' use_nominal_extrinsics:=false"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+	<node name="odometry" pkg="odometry" type="odometry.py" />
+</launch>

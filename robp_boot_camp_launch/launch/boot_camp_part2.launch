@@ -7,4 +7,12 @@
 
 	<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find realsense2_description)/urdf/test_d435_camera.urdf.xacro' use_nominal_extrinsics:=false"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+	<node name="marker_1" pkg="tf2_ros" type="static_transform_publisher" args="2 0 0.18 3.14159265359 0 0 map aruco/marker1" />
+	<node name="marker_2" pkg="tf2_ros" type="static_transform_publisher" args="-1 -1 0.18 0 0 0 map aruco/marker2" />
+
+	<node name="aruco" pkg="aruco_ros" type="marker_publisher">
+		<remap from="/camera_info" to="/camera/color/camera_info"/>
+		<remap from="/image" to="/camera/color/image_raw"/>
+	</node>
 </launch>
