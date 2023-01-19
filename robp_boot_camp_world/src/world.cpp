@@ -23,7 +23,7 @@ class World {
   void publish(tf2::Transform t = tf2::Transform()) {
     // Create random number generators
     std::random_device rd;
-    std::mt19937 gen(4);
+    std::mt19937 gen(rd());
     std::uniform_real_distribution<> dis(angles::from_degrees(-20.0),
                                          angles::from_degrees(20.0));
 
@@ -67,6 +67,7 @@ class World {
 
     p.setX(p.getX() - 0.4 * std::sin(angle_z));
     p.setY(p.getY() + 0.4 * std::cos(angle_z));
+    p.setZ(p.getZ() + 0.1);
     q.setRotation(tf2::Vector3(0, 0, 1), angle_z);
 
     tf2::toMsg(p, wall_marker.pose.position);
