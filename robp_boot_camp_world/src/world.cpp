@@ -67,7 +67,7 @@ class World {
 
     p.setX(p.getX() - 0.4 * std::sin(angle_z));
     p.setY(p.getY() + 0.4 * std::cos(angle_z));
-    p.setZ(p.getZ() + 0.1);
+    p.setZ(std::isnan(p.getZ()) ? 0.1 : p.getZ() + 0.1);
     q.setRotation(tf2::Vector3(0, 0, 1), angle_z);
 
     tf2::toMsg(p, wall_marker.pose.position);
