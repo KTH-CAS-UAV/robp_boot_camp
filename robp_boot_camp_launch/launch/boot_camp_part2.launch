@@ -14,5 +14,10 @@
 	<node name="aruco" pkg="aruco_ros" type="marker_publisher">
 		<remap from="/camera_info" to="/camera/color/camera_info"/>
 		<remap from="/image" to="/camera/color/image_raw"/>
+		
+		<param name="image_is_rectified" value="True"/>
+		<param name="marker_size"        value="0.2"/> <!-- in m -->
+		<param name="reference_frame"    value=""/>   <!-- frame in which the marker pose will be refered -->
+		<param name="camera_frame"       value="camera_link"/>
 	</node>
 </launch>
