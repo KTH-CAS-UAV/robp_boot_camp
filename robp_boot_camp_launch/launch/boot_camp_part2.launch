@@ -16,8 +16,8 @@
 		<remap from="/image" to="/camera/color/image_raw"/>
 		
 		<param name="image_is_rectified" value="True"/>
-		<param name="marker_size"        value="0.2"/> <!-- in m -->
-		<param name="reference_frame"    value=""/>   <!-- frame in which the marker pose will be refered -->
-		<param name="camera_frame"       value="camera_link"/>
+		<param name="marker_size"        value="0.18"/> <!-- in m -->
+		<param name="reference_frame"    value="camera_link"/>   <!-- frame in which the marker pose will be refered -->
+		<param name="camera_frame"       value="camera_color_optical_frame"/>
 	</node>
 </launch>
