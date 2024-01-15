@@ -30,13 +30,12 @@ add_custom_target(
 )
 
 add_library(distance_sensor SHARED IMPORTED)
-target_link_libraries(distance_sensor Boost::random)
 set_target_properties(distance_sensor PROPERTIES LINKER_LANGUAGE CXX)
 set_target_properties(distance_sensor PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/libdistance_sensor.so)
 add_dependencies(distance_sensor copy_distance_sensor_lib)
 
 add_executable(distance_sensor_node src/distance_sensor_node.cpp)
-target_link_libraries(distance_sensor_node distance_sensor)
+target_link_libraries(distance_sensor_node Boost::random distance_sensor)
 ament_target_dependencies(distance_sensor_node geometry_msgs rclcpp robp_boot_camp_interfaces std_msgs tf2 tf2_geometry_msgs tf2_ros visualization_msgs)
 
 install(TARGETS

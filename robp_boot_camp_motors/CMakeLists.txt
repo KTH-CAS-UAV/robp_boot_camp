@@ -24,13 +24,12 @@ add_custom_target(
 )
 
 add_library(kobuki_motors SHARED IMPORTED)
-target_link_libraries(kobuki_motors Boost::random)
 set_target_properties(kobuki_motors PROPERTIES LINKER_LANGUAGE CXX)
 set_target_properties(kobuki_motors PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/libkobuki_motors.so)
 add_dependencies(kobuki_motors copy_kobuki_motors_lib)
 
 add_executable(motors src/motors.cpp)
-target_link_libraries(motors kobuki_motors)
+target_link_libraries(motors Boost::random kobuki_motors)
 ament_target_dependencies(motors geometry_msgs rclcpp robp_interfaces)
 
 install(TARGETS
