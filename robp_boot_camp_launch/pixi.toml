@@ -5,3 +5,11 @@ channels = [
 ]
 name = "pixi-build-ros"
 version = "*"
+
+[package.build.config]
+extra-input-globs = [
+    "launch/**/*.xml",
+    "launch/**/*.py",
+    "launch/**/*.yaml",
+    "rviz/**/*.rviz",
+]
